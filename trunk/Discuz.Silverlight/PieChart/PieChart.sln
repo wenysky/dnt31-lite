@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieChart", "PieChart\PieChart.csproj", "{9AE985B2-5C27-4826-8E5E-81E5F08D81AE}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PieChartWeb", "PieChartWeb", "{2515581E-FF18-4FE9-AD30-62328D881AC4}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/PieChartWeb"
+		Debug.AspNetCompiler.PhysicalPath = "PieChartWeb\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\PieChartWeb\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/PieChartWeb"
+		Release.AspNetCompiler.PhysicalPath = "PieChartWeb\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\PieChartWeb\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2251"
+		DefaultWebSiteLanguage = "Visual C#"
+		ProjOutputReferences = "{9AE985B2-5C27-4826-8E5E-81E5F08D81AE}|ClientBin|false;"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AE985B2-5C27-4826-8E5E-81E5F08D81AE}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{9AE985B2-5C27-4826-8E5E-81E5F08D81AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AE985B2-5C27-4826-8E5E-81E5F08D81AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AE985B2-5C27-4826-8E5E-81E5F08D81AE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9AE985B2-5C27-4826-8E5E-81E5F08D81AE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9AE985B2-5C27-4826-8E5E-81E5F08D81AE}.Release|.NET.ActiveCfg = Release|Any CPU
+		{9AE985B2-5C27-4826-8E5E-81E5F08D81AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AE985B2-5C27-4826-8E5E-81E5F08D81AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AE985B2-5C27-4826-8E5E-81E5F08D81AE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9AE985B2-5C27-4826-8E5E-81E5F08D81AE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2515581E-FF18-4FE9-AD30-62328D881AC4}.Debug|.NET.ActiveCfg = Debug|.NET
+		{2515581E-FF18-4FE9-AD30-62328D881AC4}.Debug|.NET.Build.0 = Debug|.NET
+		{2515581E-FF18-4FE9-AD30-62328D881AC4}.Debug|Any CPU.ActiveCfg = Debug|.NET
+		{2515581E-FF18-4FE9-AD30-62328D881AC4}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
+		{2515581E-FF18-4FE9-AD30-62328D881AC4}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{2515581E-FF18-4FE9-AD30-62328D881AC4}.Release|.NET.ActiveCfg = Debug|.NET
+		{2515581E-FF18-4FE9-AD30-62328D881AC4}.Release|.NET.Build.0 = Debug|.NET
+		{2515581E-FF18-4FE9-AD30-62328D881AC4}.Release|Any CPU.ActiveCfg = Debug|.NET
+		{2515581E-FF18-4FE9-AD30-62328D881AC4}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
+		{2515581E-FF18-4FE9-AD30-62328D881AC4}.Release|Mixed Platforms.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

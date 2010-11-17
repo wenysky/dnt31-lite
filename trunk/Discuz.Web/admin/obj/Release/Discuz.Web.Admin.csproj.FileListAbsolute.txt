@@ -1,0 +1,5 @@
+E:\source\dnt\3.1Release\Discuz.Web\bin\Discuz.Web.Admin.dll
+E:\source\dnt\3.1Release\Discuz.Web\bin\Discuz.Web.Admin.pdb
+E:\source\dnt\3.1Release\Discuz.Web\Admin\obj\Release\ResolveAssemblyReference.cache
+E:\source\dnt\3.1Release\Discuz.Web\Admin\obj\Release\Discuz.Web.Admin.dll
+E:\source\dnt\3.1Release\Discuz.Web\Admin\obj\Release\Discuz.Web.Admin.pdb

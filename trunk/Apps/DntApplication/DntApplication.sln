@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscuzToolkit", "..\3\ApiClient\DiscuzToolkit\DiscuzToolkit\DiscuzToolkit.csproj", "{0C26C374-2313-4675-BD1A-8CA94A728B1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplyPad", "ReplyPad\ReplyPad.csproj", "{B88A5A71-A6B2-4333-A7BB-E203C054208D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C26C374-2313-4675-BD1A-8CA94A728B1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C26C374-2313-4675-BD1A-8CA94A728B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C26C374-2313-4675-BD1A-8CA94A728B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C26C374-2313-4675-BD1A-8CA94A728B1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88A5A71-A6B2-4333-A7BB-E203C054208D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88A5A71-A6B2-4333-A7BB-E203C054208D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88A5A71-A6B2-4333-A7BB-E203C054208D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88A5A71-A6B2-4333-A7BB-E203C054208D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

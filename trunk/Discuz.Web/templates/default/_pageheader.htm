@@ -1,0 +1,37 @@
+<%if {infloat}!=1%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%if pagetitle=="首页"%>
+<title>{config.forumtitle} {config.seotitle} - Powered by Discuz!NT</title>
+<%else%>
+<title>{pagetitle} - {config.forumtitle} {config.seotitle} - Powered by Discuz!NT</title>
+<%/if%>
+{meta}
+<meta name="generator" content="Discuz!NT {forumversion}" />
+<meta name="author" content="Discuz!NT Team and Comsenz UI Team" />
+<meta name="copyright" content="2001-2010 Comsenz Inc." />
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<link rel="icon" href="{forumurl}favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="{forumurl}favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="{forumurl}templates/{templatepath}/dnt.css" type="text/css" media="all" />
+<link rel="stylesheet" href="{forumurl}templates/{templatepath}/float.css" type="text/css" />
+{link}
+<script type="text/javascript">
+var creditnotice='{Scoresets.GetValidScoreNameAndId()}';	
+var forumpath = "{forumpath}";
+</script>
+<script type="text/javascript" src="{forumurl}javascript/common.js"></script>
+<script type="text/javascript" src="{forumurl}javascript/template_report.js"></script>
+<script type="text/javascript" src="{forumurl}javascript/template_utils.js"></script>
+<script type="text/javascript" src="{forumurl}javascript/ajax.js"></script>
+<script type="text/javascript">
+	var aspxrewrite = {config.aspxrewrite};
+	var IMGDIR = '{forumurl}templates/{templatepath}/images'
+    var allowfloatwin = {config.allowfloatwin}
+	var rooturl="{rooturl}";
+	var imagemaxwidth='{Templates.GetTemplateWidth(templatepath)}';
+</script>
+{script}
+</head>

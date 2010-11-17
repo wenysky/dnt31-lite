@@ -1,0 +1,32 @@
+﻿<src:ControlBase x:Class="PieChart.InfoBubble"
+    xmlns="http://schemas.microsoft.com/client/2007" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:src="clr-namespace:PieChart.Common"
+    ><!--Width="500" Height="380"-->
+    <!--<ControlBase.Resources>
+        <src:Blank x:Name="BlankInstance"/>
+    </ControlBase.Resources>-->
+<Canvas 
+        x:Name="LayoutRoot"
+        Width="100"
+        Height="100"
+        Opacity="0" Canvas.Left="-250" Canvas.Top="-200"
+        >
+	<Canvas.Resources>
+		<Storyboard x:Name="FadeIn2">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.Opacity)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="FadeOut2">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.Opacity)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</Canvas.Resources>
+	<Rectangle Width="57" Height="39" Fill="#99339999" RadiusX="2.314" RadiusY="2.314" Canvas.Top="8"/>
+	<Path Width="15.179" Height="7.59" Fill="#99339999" Stretch="Fill" Canvas.Top="0.41" Data="F1 M26.5555,-7.5897498 L34.145252,9.2387199E-07 C34.145252,9.2387199E-07 18.965748,9.2387199E-07 18.965748,9.2387199E-07 L26.5555,-7.5897498 z" Canvas.Left="18.966"/>
+	<TextBlock Width="60.832" Height="15.117" Text=" " TextWrapping="Wrap" Canvas.Left="8" Canvas.Top="20.955" x:Name="TxtValue2" FontSize="12" FontFamily="Arial" Foreground="#FFFFFFFF" FontWeight="Normal" FontStyle="Normal"/>
+	<!--<Image Source="Assets/TextSegment/pie_title00.png" Stretch="Fill" Canvas.Left="5.097" Canvas.Top="14.564" x:Name="TxtTitle"/>-->
+</Canvas>
+</src:ControlBase>

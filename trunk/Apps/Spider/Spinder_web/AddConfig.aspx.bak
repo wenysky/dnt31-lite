@@ -1,0 +1,299 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" ValidateRequest="false" CodeBehind="AddConfig.aspx.cs" Inherits="Spinder_web.AddConfig" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>添加新规则</title>
+		<style type="text/css">
+* {
+	font-size:12px;
+	margin:0;
+	padding:0; 
+} 
+fieldset {
+	padding:10px;
+	margin:10px;
+	width:570px;
+	color:#333; 
+	border:#06c dashed 1px;
+} 
+legend {
+	color:#06c;
+	font-weight:800; 
+	background:#fff;
+} 
+ul {
+	list-style-type: none;
+	margin:8px 0 4px 0;
+} 
+li {
+	margin-top:4px;
+}
+</style>
+</head>
+<body>
+    <form id="form1" runat="server"><br />
+	<fieldset align="center">
+	<legend>添加采集规则</legend>
+    <div align="center">
+        <table style="width:50%;">
+            <tr>
+                <td>
+                    代理服务器地址</td>
+                <td>
+                    <asp:TextBox ID="txt_proxy" runat="server"></asp:TextBox>
+                </td>
+              
+            </tr>
+            <tr>
+                <td>
+                    代理服务器端口</td>
+                <td>
+                    <asp:TextBox ID="txt_port" runat="server"></asp:TextBox>
+                </td>
+               
+            </tr>
+            <tr>
+                <td>
+                    网站名称</td>
+                <td>
+                    <asp:TextBox ID="txt_site" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    网址</td>
+                <td>
+                    <asp:TextBox ID="txt_siteurl" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    频道名称</td>
+                <td>
+                    <asp:TextBox ID="txt_channel" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    网页编码</td>
+                <td>
+                    <asp:TextBox ID="txt_charset" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    列表格式</td>
+                <td>
+                    <asp:TextBox ID="txt_listformat" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    列表开始页码</td>
+                <td>
+                    <asp:TextBox ID="txt_startno" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    列表结束列表</td>
+                <td>
+                    <asp:TextBox ID="txt_endno" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    下页格式</td>
+                <td>
+                    <asp:TextBox ID="txt_listnextpage" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    下页格式匹配组号</td>
+                <td>
+                    <asp:TextBox ID="txt_listnextpagereplace" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    每页步长</td>
+                <td>
+                    <asp:TextBox ID="txt_liststep" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    列表页内容</td>
+                <td>
+                    <asp:TextBox ID="txt_listcontent" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    列表内容匹配号</td>
+                <td>
+                    <asp:TextBox ID="txt_listcontentreplace" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    详细页链接</td>
+                <td>
+                    <asp:TextBox ID="txt_detaillink" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    详细页标题</td>
+                <td>
+                    <asp:TextBox ID="txt_titledetail" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    详细页标题匹配组号</td>
+                <td>
+                    <asp:TextBox ID="txt_titledetailreplace" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    详细页作者</td>
+                <td>
+                    <asp:TextBox ID="txt_authordetail" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    详细页作者匹配组号</td>
+                <td>
+                    <asp:TextBox ID="txt_authordetailreplace" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    详细页日期</td>
+                <td>
+                    <asp:TextBox ID="txt_datedetail" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    详细页日期匹配组号</td>
+                <td>
+                    <asp:TextBox ID="txt_datedetailreplace" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    详细页内容</td>
+                <td>
+                    <asp:TextBox ID="txt_contentdetail" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    详细页内容匹配组号</td>
+                <td>
+                    <asp:TextBox ID="txt_contentdetailreplace" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    详细页列表</td>
+                <td>
+                    <asp:TextBox ID="txt_contentlist" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    详细页列表匹配组号</td>
+                <td>
+                    <asp:TextBox ID="txt_contentlistreplace" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    详细页Tag</td>
+                <td>
+                    <asp:TextBox ID="txt_tagdetail" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    详细页Tag匹配组号</td>
+                <td>
+                    <asp:TextBox ID="txt_tagdetailreplace" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    抓取最新时间</td>
+                <td>
+                    <asp:TextBox ID="txt_snatchdate" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    抓取时间间隔</td>
+                <td>
+                    <asp:TextBox ID="txt_snatchinterval" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    抓取频率</td>
+                <td>
+                    <asp:TextBox ID="txt_snatchfrequency" runat="server"></asp:TextBox>
+                </td>
+             
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+             
+            </tr>
+            <tr>
+                <td align="center" colspan="2">
+                    <asp:Button ID="btn_ok" runat="server" Text="添加" onclick="btn_ok_Click" />
+                </td>
+             
+            </tr>
+            </table>
+    </div>
+	</fieldset>
+    </form>
+</body>
+</html>
