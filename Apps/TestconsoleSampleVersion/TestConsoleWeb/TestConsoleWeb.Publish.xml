@@ -1,0 +1,11 @@
+<publishData>
+  <publishTarget publishUrl="C:\Users\jazzcai\Desktop\testconsole\">
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="04/30/2009 14:06:39" />
+    <file relUrl="bin/TestConsole.dll" publishTime="07/30/2009 14:09:28" />
+    <file relUrl="bin/TestConsoleWeb.pdb" publishTime="07/31/2009 11:00:59" />
+    <file relUrl="Web.config" publishTime="04/30/2009 14:06:39" />
+    <file relUrl="bin/TestConsole.pdb" publishTime="07/30/2009 14:09:28" />
+    <file relUrl="bin/TestConsoleWeb.dll" publishTime="07/31/2009 11:00:59" />
+    <file relUrl="TestConsole.aspx" publishTime="07/31/2009 11:00:56" />
+  </publishTarget>
+</publishData>

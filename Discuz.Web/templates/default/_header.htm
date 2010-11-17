@@ -1,0 +1,72 @@
+<%template _pageheader%>
+<body onkeydown="if(event.keyCode==27) return false;">
+<div id="append_parent"></div><div id="ajaxwaitid"></div>
+<div id="submenu">
+	<div class="wrap s_clear">
+<%if {usergroupinfo.allowsearch}>0%>
+	<%template _quicksearch%>
+<%/if%>
+	<span class="avataonline right">
+		<%if {userid}==-1%>
+		<a href="{forumpath}login.aspx" onClick="floatwin('open_login', '{rooturl}login.aspx', 600, 410);return false;">[登录]</a>
+		<a href="{forumpath}register.aspx" onClick="floatwin('open_register', '{rooturl}register.aspx', 600, 410);return false;">[注册]</a
+		><%else%>
+		欢迎<a class="drop" id="viewpro" onMouseOver="showMenu(this.id)">{username}</a>
+		<span class="pipe">|</span>
+		<a href="{forumpath}logout.aspx?userkey={userkey}">退出</a>
+		<span class="pipe">|</span>
+		<%/if%>
+	</span>
+<%if {userid}!=-1%>
+	<a href="{forumpath}usercpinbox.aspx" class="inbox" title="{oluserinfo.newpms}条新短消息">收件箱</a>
+	<%if {oluserinfo.newpms}>0%><cite>{oluserinfo.newpms}</cite><%/if%>
+	<span class="pipe">|</span>
+	<a href="{forumpath}usercpnotice.aspx?filter=all" class="notice">通知</a>
+	<%if {oluserinfo.newnotices}>0%><cite>{oluserinfo.newnotices}</cite><%/if%>
+	<span class="pipe">|</span>
+	<a href="{forumpath}usercp.aspx" class="usercp">用户中心</a>
+	<span class="pipe">|</span>
+	<%if {useradminid}==1%>
+	<a href="{forumpath}admin/index.aspx" target="_blank" class="systemmanage">系统设置</a>
+	<span class="pipe">|</span>
+	<%/if%>
+	<a href="javascript:void(0);" class="drop" id="mymenu" onMouseOver="showMenu(this.id, false);" >我的</a>
+	<ul class="popupmenu_popup headermenu_popup" id="mymenu_menu" style="display: none">
+		<li><a href="{forumpath}mytopics.aspx">我的主题</a></li>
+		<li><a href="{forumpath}myposts.aspx">我的帖子</a></li>
+		<li><a href="{forumpath}search.aspx?posterid=current&type=digest">我的精华</a></li>
+		<li><a href="{forumpath}myattachment.aspx">我的附件</a></li>
+		<li><a href="{forumpath}usercpsubscribe.aspx">我的收藏</a></li>
+    <%if {config.Enablespace}==1%>
+		<li><a href="{forumpath}space/">我的空间</a></li>
+    <%/if%>
+    <%if {config.Enablealbum}==1%>
+		<li><a href="{forumpath}showalbumlist.aspx?uid={userid}">我的相册</a></li>
+    <%/if%>
+    <%if {config.Enablemall}==1%>
+		<li><a href="{forumpath}usercpmygoods.aspx">我的商品</a></li>
+    <%/if%>
+    </ul>
+<%/if%>
+</div>
+</div>
+<div id="header">
+	<div class="wrap s_clear">
+		<h2><a href="{forumpath}index.aspx" title="Discuz!NT|BBS|论坛"><img src="{forumpath}templates/{templatepath}/images/logo.gif" alt="Discuz!NT|BBS|论坛"/></a></h2>
+		<%if {headerad}!=""%>
+		<div id="ad_headerbanner"></div>
+		<%/if%>
+		<ul id="menu">
+			{mainnavigation}
+		</ul>
+	</div>
+</div>
+<%else%>
+<%csharp%>
+Response.Clear();
+Response.ContentType = "Text/XML";
+Response.Expires = 0;
+Response.Cache.SetNoStore();
+<%/csharp%>
+<?xml version="1.0" encoding="utf-8"?><root><![CDATA[
+<%/if%>

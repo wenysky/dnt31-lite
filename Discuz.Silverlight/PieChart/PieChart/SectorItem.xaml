@@ -1,0 +1,43 @@
+﻿<src:ControlBase x:Class="PieChart.SectorItem"
+    xmlns="http://schemas.microsoft.com/client/2007" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+     xmlns:src="clr-namespace:PieChart.Common"
+    Width="500" Height="380" Canvas.Left="-250" Canvas.Top="-200">
+    <!--<UserControl.Resources>
+       <src:Blank x:Name="BlankInstance"/>
+    </UserControl.Resources>-->
+    <Canvas 
+        x:Name="LayoutRoot"
+        Width="10"
+        Height="10"
+        RenderTransformOrigin="0,0" 
+        >
+
+	<Canvas.Resources>
+		<Storyboard x:Name="SectorHover">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)">
+				<SplineDoubleKeyFrame x:Name="HoverPosX" KeyTime="00:00:00.1000000" Value="10" KeySpline="0,0,0.5,1"/>
+			</DoubleAnimationUsingKeyFrames>
+      <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)">
+        <SplineDoubleKeyFrame x:Name="HoverPosY" KeyTime="00:00:00.1000000" Value="10" KeySpline="0,0,0.5,1"/>
+      </DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Name="SectorOut">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0" KeySpline="0,0,0.5,1"/>
+			</DoubleAnimationUsingKeyFrames>
+      <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LayoutRoot" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)">
+        <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0" KeySpline="0,0,0.5,1"/>
+      </DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</Canvas.Resources>
+
+	<Canvas.RenderTransform>
+		<TransformGroup>
+			<TranslateTransform X="0" Y="0"/>
+      <RotateTransform x:Name="SectorRotation" Angle="0"/>
+		</TransformGroup>
+	</Canvas.RenderTransform>
+
+</Canvas>
+</src:ControlBase>

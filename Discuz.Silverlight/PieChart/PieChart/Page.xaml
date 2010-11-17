@@ -1,0 +1,69 @@
+<UserControl x:Class="PieChart.Page"
+    xmlns="http://schemas.microsoft.com/client/2007" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Canvas
+        x:Name="parentCanvas" 
+        Width="640"
+        Height="480"
+        Background="Transparent"
+        >
+
+	<Canvas Width="640" Height="480" x:Name="PieCanvas">
+		<Canvas Width="283" Height="283" x:Name="ShadowCanvas" Canvas.Left="177" Canvas.Top="237" RenderTransformOrigin="0.5,0.5"/>
+		<Canvas Width="283" Height="283" x:Name="ItemCanvas" Canvas.Top="234" Canvas.Left="177" RenderTransformOrigin="0.5,0.5"/>
+	</Canvas>
+
+	<Canvas Width="198" Height="40" x:Name="Logo" Canvas.Left="77" Canvas.Top="24">
+
+    <Canvas.Triggers>
+      <EventTrigger RoutedEvent="Canvas.Loaded">
+        <BeginStoryboard>
+          <Storyboard x:Name="HighlightMove1" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LogoHighlight1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+              <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.335"/>
+              <SplineDoubleKeyFrame KeyTime="00:00:01.1000000" Value="-143.672"/>
+              <DiscreteDoubleKeyFrame KeyTime="00:00:01.2000000" Value="6.328"/>
+              <DiscreteDoubleKeyFrame KeyTime="00:00:06.2000000" Value="7.328"/>
+            </DoubleAnimationUsingKeyFrames>
+          </Storyboard>
+        </BeginStoryboard>
+        <BeginStoryboard>
+          <Storyboard x:Name="HighlightMove2" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="LogoHighlight2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+              <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.335"/>
+              <DiscreteDoubleKeyFrame KeyTime="00:00:04.6000000" Value="0.67"/>
+              <SplineDoubleKeyFrame KeyTime="00:00:05.9000000" Value="-129.941"/>
+              <DiscreteDoubleKeyFrame KeyTime="00:00:07.9000000" Value="3.059"/>
+            </DoubleAnimationUsingKeyFrames>
+          </Storyboard>
+        </BeginStoryboard>
+      </EventTrigger>
+    </Canvas.Triggers>
+    
+		<Image Height="27" Source="Assets/Image/pieResult.png" Stretch="UniformToFill"  x:Name="PieResult" Canvas.Left="28" Canvas.Top="183" />
+		<Canvas Width="70.674" Height="35.461" x:Name="LogoHighlight" Canvas.Left="42" Canvas.Top="185" Clip="M0,0 L70.673996,0 L70.673996,35.461002 L0,35.461002 z">
+			<Image Width="65" Height="36" Source="Assets/Image/logoHighlight.png" Stretch="Fill" Canvas.Left="75.693" x:Name="LogoHighlight1" RenderTransformOrigin="0.5,0.5">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+			<Image Width="55" Height="36" Source="Assets/Image/logoHighlight2.png" Stretch="Fill" x:Name="LogoHighlight2" Canvas.Left="72.675" RenderTransformOrigin="0.5,0.5">
+				<Image.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Image.RenderTransform>
+			</Image>
+		</Canvas>
+		<Image Height="20" Source="Assets/Image/discuz_logo.png" Stretch="UniformToFill" Canvas.Left="42" Canvas.Top="185" x:Name="DiscuzLogo"/>
+	</Canvas>
+</Canvas>
+</UserControl>

@@ -1,0 +1,76 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SetUser.aspx.cs" Inherits="Spinder_web.SetUser" %>
+<%@ Register TagPrefix="cc1" Namespace="Discuz.Control" Assembly="Discuz.Control" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>设置用户</title>
+		<script type="text/javascript" src="../js/common.js"></script>
+        <script type="text/javascript" src="../js/modalpopup.js"></script>
+        <script type="text/javascript">
+            function validate(theform)
+            {
+                alert("here");
+                if(document.getElementById("txt_Users").value == "")
+                {
+                    alert("用户设置不能为空");
+                    document.getElementById("txt_Users").focus();
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+	<style type="text/css">
+* {
+	font-size:12px;
+	margin:0;
+	padding:0; 
+} 
+fieldset {
+	padding:10px;
+	margin:10px;
+	width:370px;
+	color:#333; 
+	border:#06c dashed 1px;
+} 
+legend {
+	color:#06c;
+	font-weight:800; 
+	background:#fff;
+} 
+ul {
+	list-style-type: none;
+	margin:8px 0 4px 0;
+} 
+li {
+	margin-top:4px;
+}
+</style>
+</head>
+	<body >
+	<div class="ManagerForm">
+		<form id="Form1" runat="server" onsubmit="return validate(this);">
+		<fieldset align="center">
+		    <legend>设置用户</legend>
+			<table cellspacing="0" cellpadding="4" width="100%" align="center">
+                <tr>
+                    <td class="panelbox">
+                        <table width="100%">
+                            <tr>
+                                <td style="width: 80px"></td>
+                                <td>
+									<asp:TextBox ID="txt_Users" runat="server" Height="226px" TextMode="MultiLine" Width="80%"></asp:TextBox>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+		</fieldset><br/>
+        <div class="Navbutton">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<cc1:Button id="AddAnnounceInfo" runat="server" Text=" 提 交 " ValidateForm="true"></cc1:Button>&nbsp;&nbsp;
+        </div>
+		</form>
+		</div>
+	</body>
+</html>

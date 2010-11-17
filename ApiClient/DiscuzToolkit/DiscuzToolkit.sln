@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscuzToolkit", "DiscuzToolkit\DiscuzToolkit.csproj", "{0C26C374-2313-4675-BD1A-8CA94A728B1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSample", "WebSample\WebSample.csproj", "{8998567D-92F2-4265-B135-F8E6864308C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSampleHelper", "WebSampleHelper\WebSampleHelper.csproj", "{C795E61E-66E0-41D6-9730-A3B7B361E250}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C26C374-2313-4675-BD1A-8CA94A728B1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C26C374-2313-4675-BD1A-8CA94A728B1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C26C374-2313-4675-BD1A-8CA94A728B1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C26C374-2313-4675-BD1A-8CA94A728B1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8998567D-92F2-4265-B135-F8E6864308C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8998567D-92F2-4265-B135-F8E6864308C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8998567D-92F2-4265-B135-F8E6864308C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8998567D-92F2-4265-B135-F8E6864308C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C795E61E-66E0-41D6-9730-A3B7B361E250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C795E61E-66E0-41D6-9730-A3B7B361E250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C795E61E-66E0-41D6-9730-A3B7B361E250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C795E61E-66E0-41D6-9730-A3B7B361E250}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

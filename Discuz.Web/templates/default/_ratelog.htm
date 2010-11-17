@@ -1,0 +1,12 @@
+<dl class="newrate s_clear">
+	<dt>
+		<strong><a title="本帖最近评分记录" href="#">{post.ratetimes}</a></strong>
+		<p>评分次数</p>
+	</dt>
+	<%if {Discuz.Config.GeneralConfigs.GetConfig().DisplayRateCount}>0%>
+	<dd>
+		<ul class="s_clear" id="rate_{post.pid}"></ul>
+		<script type="text/javascript">_attachEvent(window, "load", function(){ showrate({post.pid},{config.aspxrewrite},{post.ratetimes},{topic.tid},'{templatepath}'); })</script>
+	</dd>
+	<%/if%>
+</dl>

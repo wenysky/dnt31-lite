@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Silverlight投票展示</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <script type="text/javascript" src="Silverlight.js"></script>
+    <script type="text/javascript" src="index.html.js"></script>
+    <style type="text/css">
+        .silverlightHost { width: 360px; height: 480px; }
+    </style>
+    <script type="text/javascript">
+        function onSilverlightError(sender, args) {
+            if (args.errorType == "InitializeError")  {
+                var errorDiv = document.getElementById("errorLocation");
+                if (errorDiv != null)
+                    errorDiv.innerHTML = args.errorType + "- " + args.errorMessage;
+            }
+        }
+
+        function playSector(mouseHover, sectorId) {
+            //显示选取的投票区域信息
+            $get("Xaml1").content.PiePage.JsCallSector(mouseHover, sectorId);
+        }
+
+        function $get(objid) {
+            return document.getElementById(objid);
+        }
+    </script>
+</head>
+
+<body>
+    <div style="width: 700px;">
+	<div id='errorLocation' style="font-size: small;color: Gray;"></div>
+    <div id="SilverlightControlHost" class="silverlightHost" style="float:left;" >
+		<object id="Xaml1" data="data:application/x-silverlight," type="application/x-silverlight-2" width="100%" height="100%">
+			<param name="source" value="ClientBin/piechart.xap"/>
+			<param name="onerror" value="onSilverlightError" />
+			<param name="background" value="white" />
+			<param name="minRuntimeVersion" value="2.0.31005.0" />
+			<param name="autoUpgrade" value="true" />
+			
+			<a href="http://go.microsoft.com/fwlink/?LinkID=124807" style="text-decoration: none;"  target="_blank">
+
+     			<img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="获得 Microsoft Silverlight" style="border-style: none"/>
+			</a>
+		</object>
+		<iframe style='visibility:hidden;height:0;width:0;border:0px'></iframe>
+    </div>
+    <div style="width:300px; height:480px; padding:20px; margin-top:100px; float: right;">
+        <div id="PieCaption0" style="visibility:hidden; border:none; background:Transparent; padding:3px 3px 3px 3px; vertical-align:baseline;">
+            <div id="dot0" style="border:solid 1px #999999; width:12px; height:12px; background-color:#83d3ed; float:left; margin-top:4px;">&nbsp;</div>
+            <span id="title0" style="font-family:Arial; font-size:12px; margin-left: 10px; color:#666666;">Pie Title00</span>
+        </div>
+        <div id="PieCaption1" style="visibility:hidden; border:none; background:Transparent; padding:3px 3px 3px 3px; vertical-align:baseline;">
+            <div id="dot1" style="border:solid 1px #999999; width:12px; height:12px; background-color:#7fc7bc; float:left; margin-top:4px;">&nbsp;</div>
+            <span id="title1" style="font-family:Arial; font-size:12px; margin-left: 10px; color:#666666;">Pie Title01</span>
+        </div>
+        <div id="PieCaption2" style="visibility:hidden; border:none; background:Transparent; padding:3px 3px 3px 3px; vertical-align:baseline;">
+            <div id="dot2" style="border:solid 1px #999999; width:12px; height:12px; background-color:#4ab4c1; float:left; margin-top:4px;">&nbsp;</div>
+            <span id="title2" style="font-family:Arial; font-size:12px; margin-left: 10px; color:#666666;">Pie Title02</span>
+        </div>
+        <div id="PieCaption3" style="visibility:hidden; border:none; background:Transparent; padding:3px 3px 3px 3px; vertical-align:baseline;">
+            <div id="dot3" style="border:solid 1px #999999; width:12px; height:12px; background-color:#edf6f1; float:left; margin-top:4px;">&nbsp;</div>
+            <span id="title3" style="font-family:Arial; font-size:12px; margin-left: 10px; color:#666666;">Pie Title03</span>
+        </div>
+        <div id="PieCaption4" style="visibility:hidden; border:none; background:Transparent; padding:3px 3px 3px 3px; vertical-align:baseline;">
+            <div id="dot4" style="border:solid 1px #999999; width:12px; height:12px; background-color:#b5e656; float:left; margin-top:4px;">&nbsp;</div>
+            <span id="title4" style="font-family:Arial; font-size:12px; margin-left: 10px; color:#666666;">Pie Title04</span>
+        </div>
+        <div id="PieCaption5" style="visibility:hidden; border:none; background:Transparent; padding:3px 3px 3px 3px; vertical-align:baseline;">
+            <div id="dot5" style="border:solid 1px #999999; width:12px; height:12px; background-color:#97ca2d; float:left; margin-top:4px;">&nbsp;</div>
+            <span id="title5" style="font-family:Arial; font-size:12px; margin-left: 10px; color:#666666;">Pie Title05</span>
+        </div>
+        <div id="PieCaption6" style="visibility:hidden; border:none; background:Transparent; padding:3px 3px 3px 3px; vertical-align:baseline;">
+            <div id="dot6" style="border:solid 1px #999999; width:12px; height:12px; background-color:#b7ca79; float:left; margin-top:4px;">&nbsp;</div>
+            <span id="title6" style="font-family:Arial; font-size:12px; margin-left: 10px; color:#666666;">Pie Title06</span>
+        </div>
+        <div id="PieCaption7" style="visibility:hidden; border:none; background:Transparent; padding:3px 3px 3px 3px; vertical-align:baseline;">
+            <div id="dot7" style="border:solid 1px #999999; width:12px; height:12px; background-color:#98cc85; float:left; margin-top:4px;">&nbsp;</div>
+            <span id="title7" style="font-family:Arial; font-size:12px; margin-left: 10px; color:#666666;">Pie Title07</span>
+        </div>
+        <div id="PieCaption8" style="visibility:hidden; border:none; background:Transparent; padding:3px 3px 3px 3px; vertical-align:baseline;">
+            <div id="dot8" style="border:solid 1px #999999; width:12px; height:12px; background-color:#5dd68f; float:left; margin-top:4px;">&nbsp;</div>
+            <span id="title8" style="font-family:Arial; font-size:12px; margin-left: 10px; color:#666666;">Pie Title08</span>
+        </div>
+        <div id="PieCaption9" style="visibility:hidden; border:none; background:Transparent; padding:3px 3px 3px 3px; vertical-align:baseline;">
+            <div id="dot9" style="border:solid 1px #999999; width:12px; height:12px; background-color:#e6e7d7; float:left; margin-top:4px;">&nbsp;</div>
+            <span id="title9" style="font-family:Arial; font-size:12px; margin-left: 10px; color:#666666;">Pie Title09</span>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
