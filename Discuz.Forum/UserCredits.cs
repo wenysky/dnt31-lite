@@ -56,7 +56,24 @@ namespace Discuz.Forum
         public static int UpdateUserCredits(int uid)
         {
             if (uid > 0)
-                return UpdateUserCredits(Users.GetShortUserInfo(uid));
+            {
+                Discuz.Data.UserCredits.UpdateUserCredits(uid);
+                ShortUserInfo userInfo = Users.GetShortUserInfo(uid);
+                UserGroupInfo tmpUserGroupInfo = UserGroups.GetUserGroupInfo(userInfo.Groupid);
+
+                if (tmpUserGroupInfo != null && ((tmpUserGroupInfo.System == 0 && tmpUserGroupInfo.Radminid == 0)
+                    || (tmpUserGroupInfo.Groupid == 7 && userInfo.Adminid == -1)))//当用户是已删除的特殊组成员时，则运算相应积分，并更新该用户所属组信息
+                {
+                    tmpUserGroupInfo = GetCreditsUserGroupId(userInfo.Credits);
+                    if (tmpUserGroupInfo.Groupid != userInfo.Groupid)//当用户所属组发生变化时
+                    {
+                        Discuz.Data.Users.UpdateUserGroup(userInfo.Uid.ToString(), tmpUserGroupInfo.Groupid);
+                        Discuz.Data.OnlineUsers.UpdateGroupid(userInfo.Uid, tmpUserGroupInfo.Groupid);
+                    }
+                }
+                return 1;
+
+            }
             else
                 return 0;
         }
