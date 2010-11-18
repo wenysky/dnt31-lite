@@ -171,6 +171,7 @@ namespace Discuz.Web
                     return;
             }
 
+            OnlineUsers.DeleteUserByUid(operateduid);    //删除在线表中的信息，使之重建该用户在线表信息
             AdminModeratorLogs.InsertLog(userid.ToString(), username, usergroupid.ToString(), usergroupinfo.Grouptitle, DNTRequest.GetIP(),
                                          DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "0", "", "0", "", actions, DNTRequest.GetString("reason").Trim());
             // 收件箱
