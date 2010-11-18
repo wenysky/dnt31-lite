@@ -232,11 +232,11 @@ namespace Discuz.Web.Admin
             }
             else
             {
-                try
+                if (groupid.Items.FindByValue(userInfo.Groupid.ToString()) != null)
                 {
                     groupid.SelectedValue = userInfo.Groupid.ToString();
                 }
-                catch
+                else
                 {
                     groupid.SelectedValue = UserCredits.GetCreditsUserGroupId(userInfo.Credits).Groupid.ToString();
                 }
@@ -979,6 +979,8 @@ namespace Discuz.Web.Admin
             this.GivenMedal.Click += new EventHandler(this.GivenMedal_Click);
             //UserCredits.UpdateUserCredits(DNTRequest.GetInt("uid", -1));
             userInfo = AdminUsers.GetUserInfo(DNTRequest.GetInt("uid", -1));
+            UserGroupInfo tmpUserGroupInfo = UserCredits.GetCreditsUserGroupId(userInfo.Credits);
+            groupid.Items.Add(new ListItem(UserGroups.GetUserGroupInfo(tmpUserGroupInfo.Groupid).Grouptitle, tmpUserGroupInfo.Groupid.ToString()));
             foreach (UserGroupInfo userGroupInfo in UserGroups.GetUserGroupList())
             {
                 //if (userGroupInfo.System == 0 && userInfo.Groupid != userGroupInfo.Groupid || userGroupInfo.Groupid == 7)
@@ -989,8 +991,6 @@ namespace Discuz.Web.Admin
                 groupid.Items.Add(new ListItem(userGroupInfo.Grouptitle, userGroupInfo.Groupid.ToString()));
                 extgroupids.Items.Add(new ListItem(userGroupInfo.Grouptitle, userGroupInfo.Groupid.ToString()));
             }
-            UserGroupInfo tmpUserGroupInfo=UserCredits.GetCreditsUserGroupId(userInfo.Credits);
-            groupid.Items.Add(new ListItem(UserGroups.GetUserGroupInfo(tmpUserGroupInfo.Groupid).Grouptitle, tmpUserGroupInfo.Groupid.ToString()));
              
             templateid.AddTableData(Templates.GetValidTemplateList(), "name", "templateid");
             templateid.Items[0].Text = "默认";
