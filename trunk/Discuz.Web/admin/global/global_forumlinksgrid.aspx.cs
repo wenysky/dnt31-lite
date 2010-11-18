@@ -31,7 +31,7 @@ namespace Discuz.Web.Admin
 
             if ((DNTRequest.GetString("displayorder").Trim() != "") && (DNTRequest.GetString("name").Trim() != ""))
             {
-                Regex r = new Regex("(http|https)://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?");
+                Regex r = new Regex("(http|https|ftp)://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?");
                 if (!r.IsMatch(DNTRequest.GetString("url").Replace("'", "''")))
                 {
                     base.RegisterStartupScript( "", "<script>alert('链接地址或LOGO不是有效的网页地址.');</script>");

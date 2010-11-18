@@ -40,7 +40,7 @@ namespace Discuz.Forum
         /// <returns></returns>
         public static int UpdateForumLink(int id, int displayorder, string name, string url, string note, string logo)
         {
-            Regex r = new Regex("(http|https)://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?");
+            Regex r = new Regex("(http|https|ftp)://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?");
             if (name == "" || !r.IsMatch(url.Replace("'", "''")))
             {
                 return -1;
