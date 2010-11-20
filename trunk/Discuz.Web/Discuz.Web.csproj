@@ -459,33 +459,6 @@
     <Content Include="aspx\1\usercppreference.aspx" />
     <Content Include="aspx\1\usercpsubscribe.aspx" />
     <Content Include="aspx\1\website.aspx" />
-    <Content Include="bin\Discuz.Aggregation.dll" />
-    <Content Include="bin\Discuz.Aggregation.pdb" />
-    <Content Include="bin\Discuz.Cache.dll" />
-    <Content Include="bin\Discuz.Cache.pdb" />
-    <Content Include="bin\Discuz.Common.dll" />
-    <Content Include="bin\Discuz.Common.pdb" />
-    <Content Include="bin\Discuz.Config.dll" />
-    <Content Include="bin\Discuz.Config.pdb" />
-    <Content Include="bin\Discuz.Control.dll" />
-    <Content Include="bin\Discuz.Control.pdb" />
-    <Content Include="bin\Discuz.Data.dll" />
-    <Content Include="bin\Discuz.Data.pdb" />
-    <Content Include="bin\Discuz.Data.SqlServer.dll" />
-    <Content Include="bin\Discuz.Data.SqlServer.pdb" />
-    <Content Include="bin\Discuz.Entity.dll" />
-    <Content Include="bin\Discuz.Entity.pdb" />
-    <Content Include="bin\Discuz.Forum.dll" />
-    <Content Include="bin\Discuz.Forum.pdb" />
-    <Content Include="bin\Discuz.Install.dll" />
-    <Content Include="bin\Discuz.Install.pdb" />
-    <Content Include="bin\Discuz.Mall.dll" />
-    <Content Include="bin\Discuz.Mall.pdb" />
-    <Content Include="bin\Discuz.Plugin.dll" />
-    <Content Include="bin\Discuz.Plugin.pdb" />
-    <Content Include="bin\Discuz.Space.dll" />
-    <Content Include="bin\Discuz.Space.pdb" />
-    <Content Include="bin\Interop.SQLDMO.dll" />
     <Content Include="install\index.aspx" />
     <Content Include="install\step2.aspx" />
     <Content Include="install\step3.aspx" />
@@ -643,11 +616,6 @@
     <Content Include="aspx\1\usercpannouncepm.aspx" />
     <Content Include="aspx\1\usercpignorelist.aspx" />
     <Content Include="aspx\1\usercpnotice.aspx" />
-    <Content Include="bin\Discuz.Plugin.PasswordMode.dll" />
-    <Content Include="bin\Discuz.Plugin.PasswordMode.pdb" />
-    <Content Include="bin\Discuz.Web.Admin.dll" />
-    <Content Include="bin\Discuz.Web.Admin.pdb" />
-    <Content Include="bin\ICSharpCode.SharpZipLib.dll" />
     <Content Include="config\aggregation.config" />
     <Content Include="config\aggregationconfiginfo.config" />
     <Content Include="config\album.config" />
@@ -677,8 +645,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="aspx\1\invite.aspx" />
-    <Content Include="bin\Discuz.EntLib.dll" />
-    <Content Include="bin\Discuz.EntLib.pdb" />
     <Content Include="templates\default\misc.htm" />
     <Content Include="templates\default\modcp.htm" />
     <Content Include="templates\default\_post.htm" />
