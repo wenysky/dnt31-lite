@@ -1,5 +1,0 @@
-E:\source\dnt\3.1Release\Discuz.Web\bin\Discuz.Plugin.Spread.dll
-E:\source\dnt\3.1Release\Discuz.Web\bin\Discuz.Plugin.Spread.pdb
-E:\source\dnt\3.1Release\Discuz.Web\plugin\Spread\obj\Release\ResolveAssemblyReference.cache
-E:\source\dnt\3.1Release\Discuz.Web\plugin\Spread\obj\Release\Discuz.Plugin.Spread.dll
-E:\source\dnt\3.1Release\Discuz.Web\plugin\Spread\obj\Release\Discuz.Plugin.Spread.pdb
