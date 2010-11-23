@@ -15,7 +15,28 @@
 			<%if {quickeditorad}!=""%>
 			<div class="leaderboard">{quickeditorad}</div>
 			<%/if%>
-			<table cellspacing="0" cellpadding="0" class="formtable" summary="个性设置">
+			<table cellspacing="0" cellpadding="0" class="formtable" summary="个性设置">			
+			<tr>
+			    <td>
+			    <%set (int){devidtype}=Wysky.Plugin.Devtask.Entities.WTypes.Getidtype(userid) %>	
+			    debug:{devidtype}<br />
+			    <%if {devidtype}==1%>
+			    <input type="hidden" id="changertype" name="changertype" value="pd"><select id="devtaskstatus" name="devtaskstatus"><option value="">状态</option><option value="0">新建</option><option value="1">公认</option><option value="2">打回</option><option value="3">已分派</option><option value="4">已解决</option><option value="5">已关闭</option></select><select id="devtaskuserid" name="devtaskuserid"><option value="">转派给</option><option value="2">wysky</option></select><br />
+			    <%/if%>			    
+			    
+			    <%if {devidtype}==2%>
+			    <input type="hidden" id="changertype" name="changertype" value="rd"><select id="devtaskstatus" name="devtaskstatus"><option value="">状态</option><option value="1">公认</option><option value="2">打回</option><option value="3">已分派</option><option value="4">已解决</option></select><select id="devtaskuserid" name="devtaskuserid"><option value="">转派给</option><option value="2">wysky</option></select><br />
+			    <%/if%>
+			    
+			    <%if {devidtype}==3%>
+			    <input type="hidden" id="changertype" name="changertype" value="ued"><select id="devtaskstatus" name="devtaskstatus"><option value="">状态</option><option value="1">公认</option><option value="2">打回</option><option value="3">已分派</option><option value="4">已解决</option></select><select id="Select4" name="devtaskuserid"><option value="">转派给</option><option value="2">wysky</option></select><br />
+			    <%/if%>			    
+			    
+			    <%if {devidtype}==4%>
+			    <input type="hidden" id="changertype" name="changertype" value="qa"><select id="devtaskstatus" name="devtaskstatus"><option value="">状态</option><option value="4">测试通过</option><option value="5">测试未通过</option></select><select id="devtaskuserid" name="devtaskuserid"><option value="">转派给</option><option value="2">wysky</option></select><br />
+			    <%/if%>
+			    </td>
+			</tr>
 			<tr>
 				<td>
 				<input type="hidden" id="quickposttitle" name="{config.antispamposttitle}" size="84" tabindex="1" value=""/><input type="hidden" id="postid" name="postid" value="-1" />

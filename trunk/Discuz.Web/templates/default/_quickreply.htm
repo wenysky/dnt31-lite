@@ -18,6 +18,24 @@
 			<table cellspacing="0" cellpadding="0" class="formtable" summary="个性设置">
 			<tbody>
 			<tr>
+			    <td>
+			        调整整体状态:
+			        <select id="devtaskstatus" name="devtaskstatus">
+						        <option value=""></option>
+						        <option value="新建">新建</option>
+						        <option value="公认">公认</option>
+						        <option value="打回">打回</option>
+						        <option value="已分派">已分派</option>
+						        <option value="已解决">已解决</option>
+						        <option value="已关闭">已关闭</option>
+			        </select>
+			        <select id="devtaskuserid" name="devtaskuserid">
+						        <option value=""></option>
+						        <option value="2">wysky</option>
+				    </select>
+			    </td>
+			</tr>
+			<tr>
 				<td>
 					<%if {topic.Special}==4 && {isenddebate}==false%>
 					<div class="float_typeid left">

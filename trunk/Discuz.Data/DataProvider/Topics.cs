@@ -662,9 +662,9 @@ namespace Discuz.Data
         /// 获取聚合首页热帖数
         /// </summary>
         /// <returns></returns>
-        public static int GetHotTopicsCount(int fid,int timeBetween)
+        public static int GetHotTopicsCount(int fid, int timeBetween)
         {
-            return DatabaseProvider.GetInstance().GetHotTopicsCount(fid,timeBetween);
+            return DatabaseProvider.GetInstance().GetHotTopicsCount(fid, timeBetween);
         }
 
         /// <summary>
@@ -912,6 +912,19 @@ namespace Discuz.Data
             topicInfo.Identify = tablefield.ToString().IndexOf(",identify,") >= 0 ? TypeConverter.ObjectToInt(reader["identify"]) : 0;
             topicInfo.Special = byte.Parse(reader["special"].ToString());
             topicInfo.Attention = tablefield.ToString().IndexOf(",attention,") >= 0 ? TypeConverter.ObjectToInt(reader["attention"]) : 0;
+
+            if (reader.FieldCount > 32)
+            {
+                topicInfo.Status = TypeConverter.ObjectToInt(reader["status"]);
+                topicInfo.Statusname = reader["statusname"].ToString();
+                topicInfo.Statuschangedate = reader["statuschangedate"].ToString();
+                topicInfo.Taskuserid = TypeConverter.ObjectToInt(reader["taskuserid"]);
+                topicInfo.Taskusername = reader["taskusername"].ToString();
+                topicInfo.Pdstatus = reader["pdstatus"].ToString();
+                topicInfo.Rdstatus = reader["rdstatus"].ToString();
+                topicInfo.Uedstatus = reader["uedstatus"].ToString();
+                topicInfo.Qastatus = reader["qastatus"].ToString();
+            }
 
             return topicInfo;
         }

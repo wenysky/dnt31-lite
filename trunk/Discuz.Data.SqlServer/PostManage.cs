@@ -2336,8 +2336,13 @@ namespace Discuz.Data.SqlServer
 									   DbHelper.MakeInParam("@pageindex", (DbType)SqlDbType.Int,4,pageIndex),
                                        DbHelper.MakeInParam("@startnum",(DbType)SqlDbType.Int,4,startNum)
 								   };
+                string spname = "gettopiclist";
+                if (true)
+                {
+                    spname = "getdevtasktopiclist";
+                }
                 return DbHelper.ExecuteReader(CommandType.StoredProcedure,
-                                              string.Format("{0}gettopiclist", BaseConfigs.GetTablePrefix),
+                                              string.Format("{0}{1}", BaseConfigs.GetTablePrefix, spname),
                                               parms);
             }
             else

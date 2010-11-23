@@ -997,6 +997,25 @@ namespace Discuz.Web.UI
             postinfo.Debateopinion = DNTRequest.GetInt("debateopinion", 0);
             postinfo.Topictitle = topic.Title;
 
+            int devtaskstatus = DNTRequest.GetFormInt("devtaskstatus", -1);
+            int nextuid = DNTRequest.GetFormInt("devtaskuserid", -1);
+            string changertype = DNTRequest.GetFormString("changertype");
+
+            if (devtaskstatus > -1)
+            {
+                StringBuilder sb = new StringBuilder();
+                if (nextuid > 0)
+                {
+                    ShortUserInfo devtaskuser = Users.GetShortUserInfo(nextuid);
+                    sb.Append(string.Format("【转派】：{0}\r\n", devtaskuser == null ? "" : devtaskuser.Username));
+                }
+                sb.Append("【状态】：" + devtaskstatus);
+                postinfo.Message = string.Format("[quote]{0}[/quote]\r\n{1}", sb.ToString(), postinfo.Message);
+
+                int result = Wysky.Plugin.Devtask.DataProvider.UpdateTopicDevTaskStatus(topicid, userid, changertype, devtaskstatus, nextuid);
+                result++;
+            }
+
             // 产生新帖子
             try
             {

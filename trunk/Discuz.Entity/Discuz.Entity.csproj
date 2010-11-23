@@ -181,6 +181,10 @@
       <Project>{6A0EC5BD-742F-431D-A9EC-5C0342B2A76A}</Project>
       <Name>Discuz.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Wysky.Plugin.Devtask.Entity\Wysky.Plugin.Devtask.Entities.csproj">
+      <Project>{36F326EF-ED5A-4CF2-AFDE-003433FF566A}</Project>
+      <Name>Wysky.Plugin.Devtask.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

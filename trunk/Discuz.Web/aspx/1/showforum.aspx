@@ -9,8 +9,8 @@ override protected void OnInit(EventArgs e)
 {
 
 	/* 
-		This page was created by Discuz!NT Template Engine at 2009-9-22 17:25:41.
-		本页面代码由Discuz!NT模板引擎生成于 2009-9-22 17:25:41. 
+		This page was created by Discuz!NT Template Engine at 2010/11/22 18:14:25.
+		本页面代码由Discuz!NT模板引擎生成于 2010/11/22 18:14:25. 
 	*/
 
 	base.OnInit(e);
@@ -51,9 +51,9 @@ override protected void OnInit(EventArgs e)
 	}	//end if
 	templateBuilder.Append(meta.ToString());
 	templateBuilder.Append("\r\n");
-	templateBuilder.Append("<meta name=\"generator\" content=\"Discuz!NT 3.0.0\" />\r\n");
+	templateBuilder.Append("<meta name=\"generator\" content=\"Discuz!NT 3.1.0\" />\r\n");
 	templateBuilder.Append("<meta name=\"author\" content=\"Discuz!NT Team and Comsenz UI Team\" />\r\n");
-	templateBuilder.Append("<meta name=\"copyright\" content=\"2001-2009 Comsenz Inc.\" />\r\n");
+	templateBuilder.Append("<meta name=\"copyright\" content=\"2001-2010 Comsenz Inc.\" />\r\n");
 	templateBuilder.Append("<meta http-equiv=\"x-ua-compatible\" content=\"ie=7\" />\r\n");
 	templateBuilder.Append("<link rel=\"icon\" href=\"");
 	templateBuilder.Append(forumurl.ToString());
@@ -73,6 +73,15 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("/float.css\" type=\"text/css\" />\r\n");
 	templateBuilder.Append(link.ToString());
 	templateBuilder.Append("\r\n");
+	templateBuilder.Append("<script type=\"text/javascript\">\r\n");
+	templateBuilder.Append("var creditnotice='");
+	templateBuilder.Append(Scoresets.GetValidScoreNameAndId().ToString().Trim());
+	templateBuilder.Append("';	\r\n");
+	templateBuilder.Append("var forumpath = \"");
+	templateBuilder.Append(forumpath.ToString());
+	templateBuilder.Append("\";\r\n");
+	templateBuilder.Append("</");
+	templateBuilder.Append("script>\r\n");
 	templateBuilder.Append("<script type=\"text/javascript\" src=\"");
 	templateBuilder.Append(forumurl.ToString());
 	templateBuilder.Append("javascript/common.js\"></");
@@ -104,6 +113,9 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("	var rooturl=\"");
 	templateBuilder.Append(rooturl.ToString());
 	templateBuilder.Append("\";\r\n");
+	templateBuilder.Append("	var imagemaxwidth='");
+	templateBuilder.Append(Templates.GetTemplateWidth(templatepath).ToString().Trim());
+	templateBuilder.Append("';\r\n");
 	templateBuilder.Append("</");
 	templateBuilder.Append("script>\r\n");
 	templateBuilder.Append(script.ToString());
@@ -122,7 +134,7 @@ override protected void OnInit(EventArgs e)
 
 	templateBuilder.Append("	<form method=\"post\" action=\"");
 	templateBuilder.Append(forumurl.ToString());
-	templateBuilder.Append("search.aspx\" target=\"_blank\" onsubmit=\"bind_keyword(this);\" class=\"right\">\r\n");
+	templateBuilder.Append("search.aspx\" target=\"_blank\" onsubmit=\"bind_keyword(this);;\" class=\"right\">\r\n");
 	templateBuilder.Append("		<input type=\"hidden\" name=\"poster\" />\r\n");
 	templateBuilder.Append("		<input type=\"hidden\" name=\"keyword\" />\r\n");
 	templateBuilder.Append("		<input type=\"hidden\" name=\"type\" value=\"\" />\r\n");
@@ -132,15 +144,15 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("		<input name=\"searchsubmit\" type=\"submit\" value=\"\" class=\"btnsearch\"/>\r\n");
 	templateBuilder.Append("	</form>\r\n");
 	templateBuilder.Append("	<script type=\"text/javascript\">\r\n");
-	templateBuilder.Append("	    function bind_keyword(form)\r\n");
-	templateBuilder.Append("	    {\r\n");
-	templateBuilder.Append("	        if (form.keywordtype.value == '8')\r\n");
-	templateBuilder.Append("	        {\r\n");
+	templateBuilder.Append("	    function bind_keyword(form) {\r\n");
+	templateBuilder.Append("			if (form.keywordtype.value == '9') {\r\n");
+	templateBuilder.Append("			    form.action = '");
+	templateBuilder.Append(forumurl.ToString());
+	templateBuilder.Append("forumsearch.aspx?q=' + escape(form.keywordf.value);\r\n");
+	templateBuilder.Append("			} else if (form.keywordtype.value == '8') {\r\n");
 	templateBuilder.Append("	            form.keyword.value = '';\r\n");
 	templateBuilder.Append("	            form.poster.value = form.keywordf.value;\r\n");
-	templateBuilder.Append("	        }\r\n");
-	templateBuilder.Append("	        else\r\n");
-	templateBuilder.Append("	        {\r\n");
+	templateBuilder.Append("	        } else {\r\n");
 	templateBuilder.Append("	            form.poster.value = '';\r\n");
 	templateBuilder.Append("	            form.keyword.value = form.keywordf.value;\r\n");
 	templateBuilder.Append("	            if (form.keywordtype.value == '2')\r\n");
@@ -308,9 +320,7 @@ override protected void OnInit(EventArgs e)
 	if (headerad!="")
 	{
 
-	templateBuilder.Append("		<div id=\"ad_headerbanner\">");
-	templateBuilder.Append(headerad.ToString());
-	templateBuilder.Append("</div>\r\n");
+	templateBuilder.Append("		<div id=\"ad_headerbanner\"></div>\r\n");
 
 	}	//end if
 
@@ -728,10 +738,19 @@ override protected void OnInit(EventArgs e)
 	
 	templateBuilder.Append("				<th \r\n");
 
+	if (config.Shownewposticon==1)
+	{
+
+	templateBuilder.Append("class=\"notopic \r\n");
+
 	if (subforum.Havenew=="new")
 	{
 
-	templateBuilder.Append("class=\"new\"\r\n");
+	templateBuilder.Append("new\r\n");
+
+	}	//end if
+
+	templateBuilder.Append("\"\r\n");
 
 	}	//end if
 
@@ -926,12 +945,21 @@ override protected void OnInit(EventArgs e)
 
 	templateBuilder.Append("				<th style=\"width:");
 	templateBuilder.Append(colwidth.ToString());
-	templateBuilder.Append("%;\"\r\n");
+	templateBuilder.Append("%;\" \r\n");
+
+	if (config.Shownewposticon==1)
+	{
+
+	templateBuilder.Append("class=\"notopic \r\n");
 
 	if (subforum.Havenew=="new")
 	{
 
-	templateBuilder.Append("class=\"new\"\r\n");
+	templateBuilder.Append("new\r\n");
+
+	}	//end if
+
+	templateBuilder.Append("\"\r\n");
 
 	}	//end if
 
@@ -1156,7 +1184,7 @@ override protected void OnInit(EventArgs e)
 	if (userid<0||canposttopic)
 	{
 
-	templateBuilder.Append("			<span onmouseover=\"$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';if($('newspecial_menu').childNodes.length>0)  showMenu(this.id);\" id=\"newspecial\" class=\"postbtn\"><a title=\"发新话题\" id=\"newtopic\" href=\"");
+	templateBuilder.Append("		<span onmouseover=\"if($('newspecial_menu').childNodes.length>0)  showMenu(this.id);\" id=\"newspecial\" class=\"postbtn left\"><a title=\"发新话题\" id=\"newtopic\" href=\"");
 	templateBuilder.Append(forumpath.ToString());
 	templateBuilder.Append("posttopic.aspx?forumid=");
 	templateBuilder.Append(forum.Fid.ToString().Trim());
@@ -1176,6 +1204,50 @@ override protected void OnInit(EventArgs e)
 
 	}	//end if
 
+	templateBuilder.Append("		<span class=\"refreshbtn left\"><a href=\"javascript:document.location.reload();\"><img alt=\"刷新页面\" src=\"");
+	templateBuilder.Append(forumpath.ToString());
+	templateBuilder.Append("templates/");
+	templateBuilder.Append(templatepath.ToString());
+	templateBuilder.Append("/images/refresh.gif\"/></a></span>\r\n");
+	templateBuilder.Append("		<div onmouseover=\"showMenu(this.id);\" class=\"left orderselect\" id=\"filterorder\">排序方式</div>\r\n");
+	templateBuilder.Append("		<ul class=\"popupmenu_popup\" id=\"filterorder_menu\" style=\"width:60px;display:none;\">\r\n");
+	templateBuilder.Append("			<li><a href=\"");
+	templateBuilder.Append(forumpath.ToString());
+	templateBuilder.Append("showforum.aspx?search=1&forumid=");
+	templateBuilder.Append(forumid.ToString());
+	templateBuilder.Append("&typeid=");
+	templateBuilder.Append(topictypeid.ToString());
+	templateBuilder.Append("&filter=");
+	templateBuilder.Append(filter.ToString());
+	templateBuilder.Append("&order=2\" \r\n");
+
+	if (order==2)
+	{
+
+	templateBuilder.Append("class=\"active\"\r\n");
+
+	}	//end if
+
+	templateBuilder.Append(">发布时间</a></li>\r\n");
+	templateBuilder.Append("			<li><a href=\"");
+	templateBuilder.Append(forumpath.ToString());
+	templateBuilder.Append("showforum.aspx?search=1&forumid=");
+	templateBuilder.Append(forumid.ToString());
+	templateBuilder.Append("&typeid=");
+	templateBuilder.Append(topictypeid.ToString());
+	templateBuilder.Append("&filter=");
+	templateBuilder.Append(filter.ToString());
+	templateBuilder.Append("&order=1\" \r\n");
+
+	if (order==1)
+	{
+
+	templateBuilder.Append("class=\"active\"\r\n");
+
+	}	//end if
+
+	templateBuilder.Append(">回复时间</a></li>\r\n");
+	templateBuilder.Append("		</ul>\r\n");
 	templateBuilder.Append("	</div>\r\n");
 	templateBuilder.Append("	<div id=\"headfilter\">\r\n");
 	templateBuilder.Append("		<a href=\"");
@@ -1312,6 +1384,10 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("					<th>标题</th>\r\n");
 	templateBuilder.Append("					<td class=\"author\">作者</td>\r\n");
 	templateBuilder.Append("					<td class=\"nums\">回复/查看</td>\r\n");
+	templateBuilder.Append("					<td style=\"text-align:center;\">状态</td>\r\n");
+	templateBuilder.Append("					<td style=\"text-align:center;\">RD</td>\r\n");
+	templateBuilder.Append("					<td style=\"text-align:center;\">UED</td>\r\n");
+	templateBuilder.Append("					<td style=\"text-align:center;\">QA</td>\r\n");
 	templateBuilder.Append("					<td class=\"lastpost\"><cite>最后发表</cite></td>\r\n");
 	templateBuilder.Append("				</tr>\r\n");
 	templateBuilder.Append("			</thead>\r\n");
@@ -1358,6 +1434,10 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("					</cite>\r\n");
 	templateBuilder.Append("				</td>\r\n");
 	templateBuilder.Append("				<td>-</td>\r\n");
+	templateBuilder.Append("					<td>状态</td>\r\n");
+	templateBuilder.Append("					<td>RD</td>\r\n");
+	templateBuilder.Append("					<td>UED</td>\r\n");
+	templateBuilder.Append("					<td>QA</td>\r\n");
 	templateBuilder.Append("				<td>-</td>\r\n");
 	templateBuilder.Append("			</tr>\r\n");
 	templateBuilder.Append("			</tbody>\r\n");
@@ -1727,6 +1807,10 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("</em> / ");
 	templateBuilder.Append(toptopic.Views.ToString().Trim());
 	templateBuilder.Append("</td>\r\n");
+	templateBuilder.Append("					<td>状态</td>\r\n");
+	templateBuilder.Append("					<td>RD</td>\r\n");
+	templateBuilder.Append("					<td>UED</td>\r\n");
+	templateBuilder.Append("					<td>QA</td>\r\n");
 	templateBuilder.Append("					<td class=\"lastpost\">\r\n");
 	templateBuilder.Append("						<cite>\r\n");
 
@@ -1784,6 +1868,10 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("					<th>版块主题</th>\r\n");
 	templateBuilder.Append("					<td class=\"author\">&nbsp;</td>\r\n");
 	templateBuilder.Append("					<td class=\"nums\">&nbsp;</td>\r\n");
+	templateBuilder.Append("					<td>状态</td>\r\n");
+	templateBuilder.Append("					<td>RD</td>\r\n");
+	templateBuilder.Append("					<td>UED</td>\r\n");
+	templateBuilder.Append("					<td>QA</td>\r\n");
 	templateBuilder.Append("					<td class=\"lastpost\">&nbsp;</td>\r\n");
 	templateBuilder.Append("				</tr>\r\n");
 	templateBuilder.Append("			</tbody>\r\n");
@@ -2451,6 +2539,28 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("</em> / ");
 	templateBuilder.Append(topic.Views.ToString().Trim());
 	templateBuilder.Append("</td>\r\n");
+	templateBuilder.Append("					<td style=\"text-align:center;\">");
+	templateBuilder.Append(topic.Taskusername.ToString().Trim());
+	templateBuilder.Append("<br />");
+	templateBuilder.Append(topic.Statusname.ToString().Trim());
+	templateBuilder.Append("<br />");
+	templateBuilder.Append(topic.Statuschangedate.ToString().Trim());
+	templateBuilder.Append("</td>\r\n");
+	templateBuilder.Append("					<td style=\"text-align:center;\">");
+	templateBuilder.Append(topic.Rdusername.ToString().Trim());
+	templateBuilder.Append("<br />");
+	templateBuilder.Append(topic.Rdstatus.ToString().Trim());
+	templateBuilder.Append("</td>\r\n");
+	templateBuilder.Append("					<td style=\"text-align:center;\">");
+	templateBuilder.Append(topic.Uedusername.ToString().Trim());
+	templateBuilder.Append("<br />");
+	templateBuilder.Append(topic.Uedstatus.ToString().Trim());
+	templateBuilder.Append("</td>\r\n");
+	templateBuilder.Append("					<td style=\"text-align:center;\">");
+	templateBuilder.Append(topic.Qausername.ToString().Trim());
+	templateBuilder.Append("<br />");
+	templateBuilder.Append(topic.Qastatus.ToString().Trim());
+	templateBuilder.Append("</td>\r\n");
 	templateBuilder.Append("					<td class=\"lastpost\">\r\n");
 	templateBuilder.Append("						<cite>\r\n");
 
@@ -2798,7 +2908,7 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append(forumurl.ToString());
 	templateBuilder.Append("posttopic.aspx?forumid=");
 	templateBuilder.Append(forumid.ToString());
-	templateBuilder.Append("\" enctype=\"multipart/form-data\" onsubmit=\"return validate(this);\">\r\n");
+	templateBuilder.Append("\" enctype=\"multipart/form-data\" onsubmit=\"return fastvalidate(this);\">\r\n");
 	templateBuilder.Append("<div id=\"quickpost\">\r\n");
 	templateBuilder.Append("	<table summary=\"快速发布帖子\" cellspacing=\"0\" cellpadding=\"0\">\r\n");
 	templateBuilder.Append("	<tbody>\r\n");
@@ -2832,7 +2942,9 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("			<tr>\r\n");
 	templateBuilder.Append("				<td>\r\n");
 	templateBuilder.Append("				<em id=\"validatemessage\"></em>\r\n");
-	templateBuilder.Append("				<input type=\"text\" id=\"title\" name=\"title\" size=\"60\" tabindex=\"1\" value=\"\" class=\"txt  left\"/>\r\n");
+	templateBuilder.Append("				<input type=\"text\" id=\"title\" name=\"");
+	templateBuilder.Append(config.Antispamposttitle.ToString().Trim());
+	templateBuilder.Append("\" size=\"60\" tabindex=\"1\" value=\"\" class=\"txt  left\"/>\r\n");
 
 	if (forum.Applytopictype==1 && topictypeselectoptions!="")
 	{
@@ -3130,7 +3242,9 @@ override protected void OnInit(EventArgs e)
 
 
 
-	templateBuilder.Append("				<textarea rows=\"5\" cols=\"80\" name=\"message\" id=\"quickpostmessage\" onKeyDown=\"seditor_ctlent(event, 'fastvalidate($(\\'quickpostform\\'))');\" tabindex=\"2\" class=\"txtarea\"  style=\"background:#FFF url(" + quickbgad[1].ToString().Trim() + ") no-repeat 50% 50%;\" \r\n");
+	templateBuilder.Append("				<textarea rows=\"5\" cols=\"80\" name=\"");
+	templateBuilder.Append(config.Antispampostmessage.ToString().Trim());
+	templateBuilder.Append("\" id=\"quickpostmessage\" onKeyDown=\"seditor_ctlent(event, 'fastvalidate($(\\'quickpostform\\'))');\" tabindex=\"2\" class=\"txtarea\"  style=\"background:#FFF url(" + quickbgad[1].ToString().Trim() + ") no-repeat 50% 50%;\" \r\n");
 
 	if (quickbgad[0].ToString().Trim()!="")
 	{
@@ -3236,6 +3350,185 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("</form>\r\n");
 
 
+
+	}	//end if
+
+
+	if (config.Whosonlinestatus!=0 && config.Whosonlinestatus!=1)
+	{
+
+	templateBuilder.Append("	<hr class=\"solidline\"/>\r\n");
+	templateBuilder.Append("	<div class=\"mainbox s_clear\" id=\"online\">\r\n");
+	templateBuilder.Append("		<span class=\"headactions\" style=\"display:none\">\r\n");
+
+	if (DNTRequest.GetString("showonline")=="no")
+	{
+
+	templateBuilder.Append("				<a href=\"showforum.aspx?forumid=");
+	templateBuilder.Append(forumid.ToString());
+	templateBuilder.Append("&showonline=yes#online\"><img src=\"");
+	templateBuilder.Append(forumpath.ToString());
+	templateBuilder.Append("templates/");
+	templateBuilder.Append(templatepath.ToString());
+	templateBuilder.Append("/images/collapsed_no.gif\" alt=\"收起\" />\r\n");
+
+	}
+	else
+	{
+
+	templateBuilder.Append("				<a href=\"showforum.aspx?forumid=");
+	templateBuilder.Append(forumid.ToString());
+	templateBuilder.Append("&showonline=no#online\"><img src=\"");
+	templateBuilder.Append(forumpath.ToString());
+	templateBuilder.Append("templates/");
+	templateBuilder.Append(templatepath.ToString());
+	templateBuilder.Append("/images/collapsed_yes.gif\" alt=\"展开\" />\r\n");
+
+	}	//end if
+
+	templateBuilder.Append("</a>\r\n");
+	templateBuilder.Append("		</span>\r\n");
+	templateBuilder.Append("		<h4>\r\n");
+	templateBuilder.Append("			<strong>在线用户</strong> - <em id=\"forumtotalonline\">");
+	templateBuilder.Append(forumtotalonline.ToString());
+	templateBuilder.Append("</em> 人在线<span id=\"invisible\"></span>\r\n");
+	templateBuilder.Append("		</h4>\r\n");
+	templateBuilder.Append("		<dl id=\"onlinelist\">\r\n");
+	templateBuilder.Append("			<dt style=\"display:none\">");
+	templateBuilder.Append(onlineiconlist.ToString());
+	templateBuilder.Append("</dt>\r\n");
+
+	if (showforumonline)
+	{
+
+	templateBuilder.Append("			<dd>\r\n");
+	templateBuilder.Append("			<ul class=\"userlist s_clear\">\r\n");
+	int invisiblecount = 0;
+	
+
+	if (forumtotalonline!=0)
+	{
+
+
+	int onlineuser__loop__id=0;
+	foreach(OnlineUserInfo onlineuser in onlineuserlist)
+	{
+		onlineuser__loop__id++;
+
+
+	if (onlineuser.Invisible==1)
+	{
+
+	 invisiblecount = invisiblecount + 1;
+	
+	templateBuilder.Append("						<li style=\"overflow:hidden;text-align:center;height:70px;width:80px;line-height:60px\">(隐身会员)</li>\r\n");
+
+	}
+	else
+	{
+
+	templateBuilder.Append("						<li style=\"overflow:hidden;text-align:center;height:70px;width:80px\">\r\n");
+	string avatarurl = Avatars.GetAvatarUrl(onlineuser.Userid, AvatarSize.Small);
+	
+	templateBuilder.Append("								<img src=\"");
+	templateBuilder.Append(avatarurl.ToString());
+	templateBuilder.Append("\" onerror=\"this.onerror=null;this.src='");
+	templateBuilder.Append(forumpath.ToString());
+	templateBuilder.Append("templates/");
+	templateBuilder.Append(templatepath.ToString());
+	templateBuilder.Append("/images/noavatar_small.gif';\"  alt=\"头像\" id=\"memberinfo_" + onlineuser__loop__id.ToString() + "\" style=\"border:1px solid #E8E8E8;padding:1px;\" />\r\n");
+
+	if (onlineuser.Userid==-1)
+	{
+
+	templateBuilder.Append("								<p>");
+	templateBuilder.Append(onlineuser.Username.ToString().Trim());
+	templateBuilder.Append("</p>\r\n");
+
+	}
+	else
+	{
+
+	 aspxrewriteurl = this.UserInfoAspxRewrite(onlineuser.Userid);
+	
+	templateBuilder.Append("								<p><a href=\"");
+	templateBuilder.Append(forumpath.ToString());
+	templateBuilder.Append(aspxrewriteurl.ToString());
+	templateBuilder.Append("\" target=\"_blank\">");
+	templateBuilder.Append(onlineuser.Username.ToString().Trim());
+	templateBuilder.Append("</a></p>\r\n");
+
+	}	//end if
+
+	templateBuilder.Append("						</li>\r\n");
+
+	}	//end if
+
+
+	}	//end loop
+
+
+	if (invisiblecount>0)
+	{
+
+	templateBuilder.Append("					<script type=\"text/javascript\">$('invisible').innerHTML = '(");
+	templateBuilder.Append(invisiblecount.ToString());
+	templateBuilder.Append("' + \" 隐身)\";</");
+	templateBuilder.Append("script>\r\n");
+
+	}	//end if
+
+
+	}
+	else
+	{
+
+	templateBuilder.Append("                  <script type=\"text/javascript\">$('forumtotalonline').innerHTML = parseInt($('forumtotalonline').innerHTML)+1;</");
+	templateBuilder.Append("script>\r\n");
+	templateBuilder.Append("					<li style=\"overflow:hidden;text-align:center;height:70px;width:80px\">\r\n");
+	string avatarurl = Avatars.GetAvatarUrl(userid, AvatarSize.Small);
+	
+	templateBuilder.Append("							<img src=\"");
+	templateBuilder.Append(avatarurl.ToString());
+	templateBuilder.Append("\" onerror=\"this.onerror=null;this.src='");
+	templateBuilder.Append(forumpath.ToString());
+	templateBuilder.Append("templates/");
+	templateBuilder.Append(templatepath.ToString());
+	templateBuilder.Append("/images/noavatar_small.gif';\"  alt=\"头像\" \" style=\"border:1px solid #E8E8E8;padding:1px;\" />\r\n");
+
+	if (userid==-1)
+	{
+
+	templateBuilder.Append("							<p>");
+	templateBuilder.Append(username.ToString());
+	templateBuilder.Append("</p>\r\n");
+
+	}
+	else
+	{
+
+	 aspxrewriteurl = this.UserInfoAspxRewrite(userid);
+	
+	templateBuilder.Append("							<p><a href=\"");
+	templateBuilder.Append(forumpath.ToString());
+	templateBuilder.Append(aspxrewriteurl.ToString());
+	templateBuilder.Append("\" target=\"_blank\">");
+	templateBuilder.Append(username.ToString());
+	templateBuilder.Append("</a></p>\r\n");
+
+	}	//end if
+
+	templateBuilder.Append("					</li>\r\n");
+
+	}	//end if
+
+	templateBuilder.Append("			</ul>\r\n");
+	templateBuilder.Append("			</dd>\r\n");
+
+	}	//end if
+
+	templateBuilder.Append("		</dl>\r\n");
+	templateBuilder.Append("	</div>\r\n");
 
 	}	//end if
 
@@ -3447,13 +3740,15 @@ override protected void OnInit(EventArgs e)
 	else
 	{
 
-	templateBuilder.Append("	<div class=\"msgbox error_msg\">\r\n");
-	templateBuilder.Append("	<p>您无权进行当前操作，这可能因以下原因之一造成</p>\r\n");
-	templateBuilder.Append("	<p><b>");
+	templateBuilder.Append("<div class=\"msgbox\" style=\"background:none;text-align:left;\">\r\n");
+	templateBuilder.Append("	<div class=\"msg_inner error_msg\">\r\n");
+	templateBuilder.Append("		<p>您无权进行当前操作，这可能因以下原因之一造成</p>\r\n");
+	templateBuilder.Append("		<p><b>");
 	templateBuilder.Append(msgbox_text.ToString());
 	templateBuilder.Append("</b></p>\r\n");
-	templateBuilder.Append("	<p>您还没有登录，请的登录后再尝试访问。</p>\r\n");
+	templateBuilder.Append("		<p>您还没有登录，请的登录后再尝试访问。</p>\r\n");
 	templateBuilder.Append("	</div>\r\n");
+	templateBuilder.Append("</div>\r\n");
 	templateBuilder.Append("	<script type=\"text/javascript\" reload=\"1\">\r\n");
 	templateBuilder.Append("	setTimeout(\"floatwin('close_newthread');floatwin('close_reply');floatwin('close_edit');floatwin('open_login', '");
 	templateBuilder.Append(forumurl.ToString());
@@ -3491,35 +3786,38 @@ override protected void OnInit(EventArgs e)
 
 	templateBuilder.Append("<div class=\"wrap s_clear\" id=\"wrap\">\r\n");
 	templateBuilder.Append("<div class=\"main\">\r\n");
-	templateBuilder.Append("	<div class=\"msgbox error_msg\">\r\n");
+	templateBuilder.Append("	<div class=\"msgbox\">\r\n");
 	templateBuilder.Append("		<h1>出现了");
 	templateBuilder.Append(page_err.ToString());
 	templateBuilder.Append("个错误</h1>\r\n");
-	templateBuilder.Append("		<p>");
+	templateBuilder.Append("		<hr class=\"solidline\"/>\r\n");
+	templateBuilder.Append("		<div class=\"msg_inner error_msg\">\r\n");
+	templateBuilder.Append("			<p>");
 	templateBuilder.Append(msgbox_text.ToString());
 	templateBuilder.Append("</p>\r\n");
-	templateBuilder.Append("		<p class=\"errorback\">\r\n");
-	templateBuilder.Append("			<script type=\"text/javascript\">\r\n");
-	templateBuilder.Append("				if(");
+	templateBuilder.Append("			<p class=\"errorback\">\r\n");
+	templateBuilder.Append("				<script type=\"text/javascript\">\r\n");
+	templateBuilder.Append("					if(");
 	templateBuilder.Append(msgbox_showbacklink.ToString());
 	templateBuilder.Append(")\r\n");
-	templateBuilder.Append("				{\r\n");
-	templateBuilder.Append("					document.write(\"<a href=\\\"");
+	templateBuilder.Append("					{\r\n");
+	templateBuilder.Append("						document.write(\"<a href=\\\"");
 	templateBuilder.Append(msgbox_backlink.ToString());
 	templateBuilder.Append("\\\">返回上一步</a> &nbsp; &nbsp;|&nbsp; &nbsp  \");\r\n");
-	templateBuilder.Append("				}\r\n");
-	templateBuilder.Append("			</");
+	templateBuilder.Append("					}\r\n");
+	templateBuilder.Append("				</");
 	templateBuilder.Append("script>\r\n");
-	templateBuilder.Append("			<a href=\"forumindex.aspx\">论坛首页</a>\r\n");
+	templateBuilder.Append("				<a href=\"forumindex.aspx\">论坛首页</a>\r\n");
 
 	if (usergroupid==7)
 	{
 
-	templateBuilder.Append("			 &nbsp; &nbsp|&nbsp; &nbsp; <a href=\"register.aspx\">注册</a>\r\n");
+	templateBuilder.Append("				 &nbsp; &nbsp;|&nbsp; &nbsp; <a href=\"login.aspx\">登录</a>&nbsp; &nbsp;|&nbsp; &nbsp; <a href=\"register.aspx\">注册</a>\r\n");
 
 	}	//end if
 
-	templateBuilder.Append("		</p>\r\n");
+	templateBuilder.Append("			</p>\r\n");
+	templateBuilder.Append("		</div>\r\n");
 	templateBuilder.Append("	</div>\r\n");
 	templateBuilder.Append("</div>\r\n");
 	templateBuilder.Append("</div>\r\n");
@@ -3606,12 +3904,33 @@ override protected void OnInit(EventArgs e)
 	{
 
 
-	if (footerad!="")
+	if (pagename=="website.aspx")
 	{
 
-	templateBuilder.Append("<div id=\"ad_footerbanner\">");
+	templateBuilder.Append("       <div id=\"websitebottomad\"></div>\r\n");
+
+	}
+	else if (footerad!="")
+	{
+
+	templateBuilder.Append("     <div id=\"ad_footerbanner\">");
 	templateBuilder.Append(footerad.ToString());
+	templateBuilder.Append("</div>   \r\n");
+
+	}	//end if
+
+
+	if (headerad!="")
+	{
+
+	templateBuilder.Append("<div id=\"ad_headerbanner_nodisplay\" style=\"display:none\">");
+	templateBuilder.Append(headerad.ToString());
 	templateBuilder.Append("</div>\r\n");
+	templateBuilder.Append("<script type=\"text/javascript\">\r\n");
+	templateBuilder.Append("$('ad_headerbanner').innerHTML = $('ad_headerbanner_nodisplay').innerHTML;\r\n");
+	templateBuilder.Append("$('ad_headerbanner_nodisplay').parentNode.removeChild($('ad_headerbanner_nodisplay'));\r\n");
+	templateBuilder.Append("</");
+	templateBuilder.Append("script>\r\n");
 
 	}	//end if
 
@@ -3658,11 +3977,6 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("				- <span id=\"styleswitcher\" class=\"drop\" onmouseover=\"showMenu(this.id)\" onclick=\"window.location.href='");
 	templateBuilder.Append(forumurl.ToString());
 	templateBuilder.Append("showtemplate.aspx'\">界面风格</span>\r\n");
-	templateBuilder.Append("				<ul id=\"styleswitcher_menu\" class=\"popupmenu_popup s_clear\" style=\"display: none;\">\r\n");
-	templateBuilder.Append("				");
-	templateBuilder.Append(templatelistboxoptions.ToString());
-	templateBuilder.Append("\r\n");
-	templateBuilder.Append("				</ul>\r\n");
 
 	}	//end if
 
@@ -3678,7 +3992,7 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append(templatepath.ToString());
 	templateBuilder.Append("/images/discuznt_logo.gif\"/></a>\r\n");
 	templateBuilder.Append("		<p id=\"copyright\">\r\n");
-	templateBuilder.Append("			Powered by <strong><a href=\"http://nt.discuz.net\" target=\"_blank\" title=\"Discuz!NT 3.0.0 (.NET Framework 2.0/3.x)\">Discuz!NT</a></strong> <em class=\"f_bold\">3.0.0</em>\r\n");
+	templateBuilder.Append("			Powered by <strong><a href=\"http://nt.discuz.net\" target=\"_blank\" title=\"Discuz!NT 3.1.0 (.NET Framework 2.0/3.x)\">Discuz!NT</a></strong> <em class=\"f_bold\">3.1.0</em>\r\n");
 
 	if (config.Licensed==1)
 	{
@@ -3717,7 +4031,7 @@ override protected void OnInit(EventArgs e)
 	else
 	{
 
-	templateBuilder.Append("				        , ");
+	templateBuilder.Append("				 , ");
 	templateBuilder.Append(querycount.ToString());
 	templateBuilder.Append(" query.\r\n");
 
@@ -3730,12 +4044,12 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("	</div>\r\n");
 	templateBuilder.Append("</div>\r\n");
 	templateBuilder.Append("<ul id=\"quicksearch_menu\" class=\"popupmenu_popup\" style=\"display: none;\">\r\n");
-	templateBuilder.Append("	<li onclick=\"document.getElementById('keywordtype').value='0';document.getElementById('quicksearch').innerHTML='帖子标题';document.getElementById('quicksearch_menu').style.display='none';\" onmouseover=\"MouseCursor(this);\">帖子标题</li>\r\n");
+	templateBuilder.Append("	<li onclick=\"$('keywordtype').value='0';$('quicksearch').innerHTML='帖子标题';$('quicksearch_menu').style.display='none';\" onmouseover=\"MouseCursor(this);\">帖子标题</li>\r\n");
 
 	if (config.Enablespace==1)
 	{
 
-	templateBuilder.Append("	<li onclick=\"document.getElementById('keywordtype').value='2';document.getElementById('quicksearch').innerHTML='空间日志';document.getElementById('quicksearch_menu').style.display='none';\" onmouseover=\"MouseCursor(this);\">空间日志</li>\r\n");
+	templateBuilder.Append("	<li onclick=\"$('keywordtype').value='2';$('quicksearch').innerHTML='空间日志';$('quicksearch_menu').style.display='none';\" onmouseover=\"MouseCursor(this);\">空间日志</li>\r\n");
 
 	}	//end if
 
@@ -3743,11 +4057,12 @@ override protected void OnInit(EventArgs e)
 	if (config.Enablealbum==1)
 	{
 
-	templateBuilder.Append("	<li onclick=\"document.getElementById('keywordtype').value='3';document.getElementById('quicksearch').innerHTML='相册标题';document.getElementById('quicksearch_menu').style.display='none';\" onmouseover=\"MouseCursor(this);\">相册标题</li>\r\n");
+	templateBuilder.Append("	<li onclick=\"$('keywordtype').value='3';$('quicksearch').innerHTML='相册标题';$('quicksearch_menu').style.display='none';\" onmouseover=\"MouseCursor(this);\">相册标题</li>\r\n");
 
 	}	//end if
 
-	templateBuilder.Append("	<li onclick=\"document.getElementById('keywordtype').value='8';document.getElementById('quicksearch').innerHTML='作者';document.getElementById('quicksearch_menu').style.display='none';\" onmouseover=\"MouseCursor(this);\">作者</li>\r\n");
+	templateBuilder.Append("	<li onclick=\"$('keywordtype').value='8';$('quicksearch').innerHTML='作者';$('quicksearch_menu').style.display='none';\" onmouseover=\"MouseCursor(this);\">作者</li>\r\n");
+	templateBuilder.Append("	<li onclick=\"$('keywordtype').value='9';$('quicksearch').innerHTML='版块';$('quicksearch_menu').style.display='none';\" onmouseover=\"MouseCursor(this);\">版块</li>\r\n");
 	templateBuilder.Append("</ul>\r\n");
 	templateBuilder.Append("<ul class=\"popupmenu_popup\" id=\"viewpro_menu\" style=\"display: none\">\r\n");
 	templateBuilder.Append("	<li style=\"text-align:center;\"><img src=\"");
@@ -3981,6 +4296,25 @@ override protected void OnInit(EventArgs e)
 	templateBuilder.Append("</ul>\r\n");
 
 	}	//end loop
+
+
+	if (config.Stylejump==1)
+	{
+
+
+	if (userid!=-1 || config.Guestcachepagetimeout<=0)
+	{
+
+	templateBuilder.Append("	<ul id=\"styleswitcher_menu\" class=\"popupmenu_popup s_clear\" style=\"display: none;\">\r\n");
+	templateBuilder.Append("	");
+	templateBuilder.Append(templatelistboxoptions.ToString());
+	templateBuilder.Append("\r\n");
+	templateBuilder.Append("	</ul>\r\n");
+
+	}	//end if
+
+
+	}	//end if
 
 
 

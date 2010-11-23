@@ -135,6 +135,10 @@
       <Project>{41156C65-96B0-4026-A4FF-94CC299ABCAB}</Project>
       <Name>Discuz.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Wysky.Plugin.Devtask.Entity\Wysky.Plugin.Devtask.Entities.csproj">
+      <Project>{36F326EF-ED5A-4CF2-AFDE-003433FF566A}</Project>
+      <Name>Wysky.Plugin.Devtask.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
