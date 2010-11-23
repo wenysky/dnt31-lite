@@ -146,6 +146,10 @@
 					<th>标题</th>
 					<td class="author">作者</td>
 					<td class="nums">回复/查看</td>
+					<td style="text-align:center;">状态</td>
+					<td style="text-align:center;">RD</td>
+					<td style="text-align:center;">UED</td>
+					<td style="text-align:center;">QA</td>
 					<td class="lastpost"><cite>最后发表</cite></td>
 				</tr>
 			</thead>
@@ -167,6 +171,10 @@
 					</cite>
 				</td>
 				<td>-</td>
+					<td>状态</td>
+					<td>RD</td>
+					<td>UED</td>
+					<td>QA</td>
 				<td>-</td>
 			</tr>
 			</tbody>
@@ -270,6 +278,10 @@
 						<em><%datetostr({toptopic.postdatetime}, "yyyy-MM-dd HH:mm")%></em>
 					</td>
 					<td class="nums"><em>{toptopic.replies}</em> / {toptopic.views}</td>
+					<td>状态</td>
+					<td>RD</td>
+					<td>UED</td>
+					<td>QA</td>
 					<td class="lastpost">
 						<cite>
 							<%if {toptopic.lastposterid}==-1%>
@@ -291,6 +303,10 @@
 					<th>版块主题</th>
 					<td class="author">&nbsp;</td>
 					<td class="nums">&nbsp;</td>
+					<td>状态</td>
+					<td>RD</td>
+					<td>UED</td>
+					<td>QA</td>
 					<td class="lastpost">&nbsp;</td>
 				</tr>
 			</tbody>
@@ -456,6 +472,10 @@
 						<em><%datetostr({topic.postdatetime}, "yyyy-MM-dd HH:mm")%></em>
 					</td>
 					<td class="nums"><em>{topic.replies}</em> / {topic.views}</td>
+					<td style="text-align:center;">{topic.taskusername}<br />{topic.statusname}<br />{topic.statuschangedate}</td>
+					<td style="text-align:center;">{topic.rdusername}<br />{topic.rdstatus}</td>
+					<td style="text-align:center;">{topic.uedusername}<br />{topic.uedstatus}</td>
+					<td style="text-align:center;">{topic.qausername}<br />{topic.qastatus}</td>
 					<td class="lastpost">
 						<cite>
 						<%if {topic.lastposterid}==-1%>

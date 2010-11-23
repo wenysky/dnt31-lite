@@ -438,6 +438,10 @@
       <Project>{A4B1F8BD-6C98-453B-82E2-4B54D08F227E}</Project>
       <Name>Discuz.Web.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Wysky.Plugin.Devtask\Wysky.Plugin.Devtask.csproj">
+      <Project>{A74989D6-37EE-4A45-ADC7-D3C00B7EFB7C}</Project>
+      <Name>Wysky.Plugin.Devtask</Name>
+    </ProjectReference>
     <ProjectReference Include="Admin\Discuz.Web.Admin.csproj">
       <Project>{A3263B57-6E20-4A9F-8D1F-9A020CF95F08}</Project>
       <Name>Discuz.Web.Admin</Name>
